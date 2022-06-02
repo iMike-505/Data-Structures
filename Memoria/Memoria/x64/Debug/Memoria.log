@@ -1,0 +1,31 @@
+﻿  Memoria.cpp
+C:\Users\imike\OneDrive\Escritorio\ED\Memoria\Memoria\Memoria.cpp(44,16): warning C4477: 'printf' : la cadena de formato '%x' requiere un argumento de tipo 'unsigned int', pero el argumento variádico 4 tiene el tipo 'int *'
+C:\Users\imike\OneDrive\Escritorio\ED\Memoria\Memoria\Memoria.cpp(44,16): warning C4313: 'printf': '%x' en la cadena de formato entra en conflicto con el argumento 4 de tipo 'int *'
+C:\Users\imike\OneDrive\Escritorio\ED\Memoria\Memoria\Memoria.cpp(44,16): warning C4477: 'printf' : la cadena de formato '%i' requiere un argumento de tipo 'int', pero el argumento variádico 5 tiene el tipo 'size_t'
+C:\Users\imike\OneDrive\Escritorio\ED\Memoria\Memoria\Memoria.cpp(44,16): message : considere el uso de ' %zi' en la cadena de formato
+C:\Users\imike\OneDrive\Escritorio\ED\Memoria\Memoria\Memoria.cpp(49,12): warning C4477: 'printf' : la cadena de formato '%x' requiere un argumento de tipo 'unsigned int', pero el argumento variádico 2 tiene el tipo 'int *'
+C:\Users\imike\OneDrive\Escritorio\ED\Memoria\Memoria\Memoria.cpp(49,12): warning C4313: 'printf': '%x' en la cadena de formato entra en conflicto con el argumento 2 de tipo 'int *'
+C:\Users\imike\OneDrive\Escritorio\ED\Memoria\Memoria\Memoria.cpp(49,12): warning C4477: 'printf' : la cadena de formato '%i' requiere un argumento de tipo 'int', pero el argumento variádico 3 tiene el tipo 'size_t'
+C:\Users\imike\OneDrive\Escritorio\ED\Memoria\Memoria\Memoria.cpp(49,12): message : considere el uso de ' %zi' en la cadena de formato
+C:\Users\imike\OneDrive\Escritorio\ED\Memoria\Memoria\Memoria.cpp(50,12): warning C4477: 'printf' : la cadena de formato '%i' requiere un argumento de tipo 'int', pero el argumento variádico 1 tiene el tipo 'int *'
+C:\Users\imike\OneDrive\Escritorio\ED\Memoria\Memoria\Memoria.cpp(50,12): warning C4313: 'printf': '%i' en la cadena de formato entra en conflicto con el argumento 1 de tipo 'int *'
+C:\Users\imike\OneDrive\Escritorio\ED\Memoria\Memoria\Memoria.cpp(50,12): warning C4477: 'printf' : la cadena de formato '%x' requiere un argumento de tipo 'unsigned int', pero el argumento variádico 2 tiene el tipo 'int *'
+C:\Users\imike\OneDrive\Escritorio\ED\Memoria\Memoria\Memoria.cpp(50,12): warning C4313: 'printf': '%x' en la cadena de formato entra en conflicto con el argumento 2 de tipo 'int *'
+C:\Users\imike\OneDrive\Escritorio\ED\Memoria\Memoria\Memoria.cpp(50,12): warning C4477: 'printf' : la cadena de formato '%i' requiere un argumento de tipo 'int', pero el argumento variádico 3 tiene el tipo 'size_t'
+C:\Users\imike\OneDrive\Escritorio\ED\Memoria\Memoria\Memoria.cpp(50,12): message : considere el uso de ' %zi' en la cadena de formato
+C:\Users\imike\OneDrive\Escritorio\ED\Memoria\Memoria\Memoria.cpp(51,12): warning C4477: 'printf' : la cadena de formato '%x' requiere un argumento de tipo 'unsigned int', pero el argumento variádico 1 tiene el tipo 'int *'
+C:\Users\imike\OneDrive\Escritorio\ED\Memoria\Memoria\Memoria.cpp(51,12): warning C4313: 'printf': '%x' en la cadena de formato entra en conflicto con el argumento 1 de tipo 'int *'
+C:\Users\imike\OneDrive\Escritorio\ED\Memoria\Memoria\Memoria.cpp(51,12): warning C4477: 'printf' : la cadena de formato '%x' requiere un argumento de tipo 'unsigned int', pero el argumento variádico 2 tiene el tipo 'int **'
+C:\Users\imike\OneDrive\Escritorio\ED\Memoria\Memoria\Memoria.cpp(51,12): warning C4313: 'printf': '%x' en la cadena de formato entra en conflicto con el argumento 2 de tipo 'int **'
+C:\Users\imike\OneDrive\Escritorio\ED\Memoria\Memoria\Memoria.cpp(51,12): warning C4477: 'printf' : la cadena de formato '%i' requiere un argumento de tipo 'int', pero el argumento variádico 3 tiene el tipo 'size_t'
+C:\Users\imike\OneDrive\Escritorio\ED\Memoria\Memoria\Memoria.cpp(51,12): message : considere el uso de ' %zi' en la cadena de formato
+C:\Users\imike\OneDrive\Escritorio\ED\Memoria\Memoria\Memoria.cpp(52,12): warning C4477: 'printf' : la cadena de formato '%x' requiere un argumento de tipo 'unsigned int', pero el argumento variádico 1 tiene el tipo 'int *'
+C:\Users\imike\OneDrive\Escritorio\ED\Memoria\Memoria\Memoria.cpp(52,12): warning C4313: 'printf': '%x' en la cadena de formato entra en conflicto con el argumento 1 de tipo 'int *'
+C:\Users\imike\OneDrive\Escritorio\ED\Memoria\Memoria\Memoria.cpp(52,12): warning C4477: 'printf' : la cadena de formato '%x' requiere un argumento de tipo 'unsigned int', pero el argumento variádico 2 tiene el tipo 'int **'
+C:\Users\imike\OneDrive\Escritorio\ED\Memoria\Memoria\Memoria.cpp(52,12): warning C4313: 'printf': '%x' en la cadena de formato entra en conflicto con el argumento 2 de tipo 'int **'
+C:\Users\imike\OneDrive\Escritorio\ED\Memoria\Memoria\Memoria.cpp(52,12): warning C4477: 'printf' : la cadena de formato '%i' requiere un argumento de tipo 'int', pero el argumento variádico 3 tiene el tipo 'size_t'
+C:\Users\imike\OneDrive\Escritorio\ED\Memoria\Memoria\Memoria.cpp(52,12): message : considere el uso de ' %zi' en la cadena de formato
+C:\Users\imike\OneDrive\Escritorio\ED\Memoria\Memoria\Memoria.cpp(23,10): warning C4101: 'pv3': variable local sin referencia
+C:\Users\imike\OneDrive\Escritorio\ED\Memoria\Memoria\Memoria.cpp(22,9): warning C4101: 'arr2': variable local sin referencia
+C:\Users\imike\OneDrive\Escritorio\ED\Memoria\Memoria\Memoria.cpp(18,9): warning C4101: 'i2': variable local sin referencia
+  Memoria.vcxproj -> C:\Users\imike\OneDrive\Escritorio\ED\Memoria\x64\Debug\Memoria.exe
