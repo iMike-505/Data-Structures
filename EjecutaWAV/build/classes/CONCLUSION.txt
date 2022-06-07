@@ -1,0 +1,2 @@
+Omar Alejandro Garcia Rodriguez
+En este proyecto pude ver la importancia de entender la estructura de los datos, como su tamaño o forma de su almacenamiento en la memoria, entender estas características es importante para ser capaz de desarrollar programas que manejan archivos que siguen un formato, como lo es el audio .wav. Me emociona entender un poco mas sobre audio ahora, pues me encanta la música (¿a quién no?).

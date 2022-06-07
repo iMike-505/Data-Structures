@@ -1,0 +1,135 @@
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class GeneraWAV {//esta clase contiene el método principal para generar un archivo wav, y otro par de métodos útiles para este proposito
+    
+    public void escribe(String nombre, int iTiempo, int iFrecuenciaMuestreo, int iArmonico){
+        
+        if (iTiempo<=0)throw new java.lang.IllegalArgumentException();
+        if (iFrecuenciaMuestreo<=0||(iFrecuenciaMuestreo!=44100&&iFrecuenciaMuestreo!=22050&&iFrecuenciaMuestreo!=11025))throw new java.lang.IllegalArgumentException();
+        if (iArmonico<=0||iArmonico>32000)throw new java.lang.IllegalArgumentException();
+        try{
+        File archivo = new File(nombre);
+        
+            if (archivo.createNewFile()) {//este if comprueba si el archivo se creó exitosamente
+            //System.out.println("Archivo creado");
+            } else {
+            //System.out.println("Ya existe un archivo con ese nombre.");
+            }
+   
+            //Gestion del archivo (en un try-cath porque asi se requiere)
+            try{
+            FileOutputStream f = new FileOutputStream(nombre);
+            try (DataOutputStream d = new DataOutputStream(f)) {//creación de un escritor para el archivo
+                
+                String chunkId = "RIFF";//constante requerida
+                int chunkSize;//tamaño archivo
+                
+                String format = "WAVE";//tipo, constante
+                String subChunk1Id = "fmt ";
+                
+                int subChunk1Size = 16;//formato, constante para este caso
+                short audioFormat = 1;//pcm
+                short numChannels = 1;//mono
+                int sampleRate = iFrecuenciaMuestreo;//es la frecuencia en hz (11025, 22050, 44100...)
+                int byteRate = sampleRate*2;//bytes por ciclo
+                short blockAlign=2;//bytes por muestra
+                short bitsPerSample = 16;//bits por muestra
+                
+                String subChunk2Id = "data";// constante
+                int subChunk2Size = sampleRate*iTiempo*2;//tamaño de las muestras
+                chunkSize = subChunk2Size+36;//tamaño de muestras + 36 por el encabezado (especificamente 44-8 del encabezado)
+                
+                
+                byte b[];//arreglo de bytes util para escribir en el archivo
+                byte conta;//contador general
+                
+                d.writeBytes(chunkId);//escribe "RIFF"
+                
+                b = intAArregloByte(chunkSize, false);//cambia chunkSize a LE
+                for (conta=0; conta<4; conta++)
+                    d.writeByte(b[conta]);//escribe en el archivo byte por byte
+                
+                d.writeBytes(format);//escribe "WAVE"
+                d.writeBytes(subChunk1Id);//escribe "fmt "
+                
+                b = intAArregloByte(subChunk1Size, false);//LE
+                for (conta=0; conta<4; conta++)
+                    d.writeByte(b[conta]);
+                
+                b = shortAArregloByte(audioFormat, false);//LE
+                for (conta=0; conta<2; conta++)
+                    d.writeByte(b[conta]);
+                
+                b = shortAArregloByte(numChannels, false);
+                for (conta=0; conta<2; conta++)
+                    d.writeByte(b[conta]);
+                
+                b = intAArregloByte(sampleRate, false);
+                for (conta=0; conta<4; conta++)
+                    d.writeByte(b[conta]);
+                
+                b = intAArregloByte(byteRate, false);
+                for (conta=0; conta<4; conta++)
+                    d.writeByte(b[conta]);
+                
+                b = shortAArregloByte(blockAlign, false);
+                for (conta=0; conta<2; conta++)
+                    d.writeByte(b[conta]);
+                
+                b = shortAArregloByte(bitsPerSample, false);
+                for (conta=0; conta<2; conta++)
+                    d.writeByte(b[conta]);
+                
+                d.writeBytes(subChunk2Id);//escribe "data"
+                
+                b = intAArregloByte(subChunk2Size, false);
+                for (conta=0; conta<4; conta++)
+                    d.writeByte(b[conta]);
+                
+                int numSamples=sampleRate*iTiempo;//calcula el número de muestras
+                short s;
+                for(int i=0;i<numSamples;i++){//genera todas las muestras
+                    s = (short)(Math.sin(2*Math.PI*iArmonico*1/sampleRate*i)*32000);
+                    b = shortAArregloByte(s, false);
+                    for (conta=0; conta<2; conta++)//escribe la muestra recién generada
+                        d.writeByte(b[conta]);
+                }
+            }
+            }
+            catch(IOException error){
+                System.out.println("Excepción al escribir en el archivo wav:/n"+error);
+            }
+        }
+        catch(IOException error){
+            System.out.println("Sucedió un error con el archivo:\n"+error);
+        }
+        
+    }
+    private byte[] intAArregloByte(int valor, boolean bigEndian) {//método para descomponer un entero en bytes y reacomodarlo en little/big endian
+         byte[] resultado;
+         byte b3 = (byte) ((valor >> 24) & 0xFF);
+         byte b2 = (byte) ((valor >> 16) & 0xFF);
+         byte b1 = (byte) ((valor >> 8) & 0xFF);
+         byte b0 = (byte) (valor & 0xFF);
+         if (bigEndian) {
+              resultado = new byte[]{b3 , b2 , b1 , b0};
+         } else {//se invierte el orden para "transformarlo" a little endian
+              resultado = new byte[]{b0 ,  b1 , b2 , b3};
+         }
+         return resultado;
+    }
+    private byte[] shortAArregloByte(short valor, boolean bigEndian) {//método bonito adaptado a un short
+         byte[] resultado;
+         byte b1 = (byte) ((valor >> 8) & 0xFF);
+         byte b0 = (byte) (valor & 0xFF);
+         if (bigEndian) {
+              resultado = new byte[]{b1 , b0};
+         } else {
+              resultado = new byte[]{b0 , b1};
+         }
+         return resultado;
+    }
+}
